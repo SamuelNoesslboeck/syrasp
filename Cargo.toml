@@ -1,0 +1,16 @@
+[package]
+name = "syrasp"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.4", features = [ "cargo" ] }
+env_logger = "0.11.3"
+log = "0.4.21"
+rppal = { version = "0.17.1", features = [ "embedded-hal" ] }
+syact = "0.12.1-alpha"
+syunit = "0.1.6"
+
+[[bin]]
+name = "stepper-fixed_dist"
+path = "bin/stepper/fixed_dist.rs"
