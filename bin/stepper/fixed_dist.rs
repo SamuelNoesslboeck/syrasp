@@ -13,7 +13,7 @@ fn main() -> Result<(), syact::Error> {
     // Init logger
         env_logger::init();
 
-        info!("> # SYRASP - stepper-fixed_dist");
+        info!("# SYRASP - stepper-fixed_dist");
     // 
 
     // Parse cmd args
