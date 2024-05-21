@@ -1,15 +1,16 @@
 [package]
 name = "syrasp"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 [dependencies]
 clap = { version = "4.5.4", features = [ "cargo" ] }
 env_logger = "0.11.3"
 log = "0.4.21"
-rppal = { version = "0.17.1", features = [ "embedded-hal" ] }
-syact = "0.12.1-alpha"
+rppal = { version = "0.18.0", features = [ "embedded-hal" ] }
+syact = "0.13.1"
 syunit = "0.1.6"
+tokio = { version = "1.37.0", features = ["full"] }
 
 # Binaries
     [[bin]]

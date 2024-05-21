@@ -9,7 +9,8 @@ use syact::prelude::*;
 const DELTA_DEF : Delta = Delta(2.0 * PI);
 const OMEGA_DEF : Velocity = Velocity(20.0);
 
-fn main() -> Result<(), syact::Error> {
+#[tokio::main]
+async fn main() -> Result<(), syact::Error> {
     // Init logger
         env_logger::init();
 
@@ -49,7 +50,7 @@ fn main() -> Result<(), syact::Error> {
             gpio.get(pin_dir).unwrap().into_output()
         )?, 
         StepperConst::MOT_17HE15_1504S
-    );
+    ).unwrap();
 
     // Link the component to a system
     stepper.set_config(StepperConfig { 
@@ -71,7 +72,7 @@ fn main() -> Result<(), syact::Error> {
     debug!("> Data used: {{ Delta: {}, Omega: {} }}", delta, omega);
 
     info!("> Starting the movement ... ");
-    stepper.drive_rel(delta, Factor::MAX)?;      
+    stepper.drive_rel(delta, Factor::MAX).await?;      
     info!("|  > Movement done!");
 
     Ok(())
